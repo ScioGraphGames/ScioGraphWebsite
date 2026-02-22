@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    background-color: #f8f9fa; /* 浅灰色背景，比纯白高级 */
+    /* 创建 20px 的细小网格线 */
+    background-image: 
+        linear-gradient(#0055ff0c 2px, transparent 2px),
+        linear-gradient(90deg, #0055ff0c 2px, transparent 2px);
+    background-size: 20px 20px;
+    color: #333;
+}
+.text-sci-flow {
+    /* 1. 镜像渐变：蓝 -> 粉 -> 蓝 */
+    /* 这样首尾颜色一致，循环时就完全看不出跳动了 */
+    background: linear-gradient(
+        30deg, 
+        #89B8FE 0%, 
+        #FFC3DE 50%, 
+        #89B8FE 100%
+    );
+    
+    /* 2. 放大背景宽度，给流动留出空间 */
+    background-size: 200% auto;
+    
+    /* 3. 基础文字裁剪设置 */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 400;
+
+    /* 4. 修改动画：让它更平滑地流动 */
+    /* 增加时长可以减缓流动速度，让它更像呼吸一样自然 */
+    animation: text-sci-shine 6s linear infinite;
+}
+
+@keyframes text-sci-shine {
+    0% {
+        background-position: 0% center;
+    }
+    100% {
+        /* 滑动到 200% 刚好完成一个完整的蓝-粉-蓝循环 */
+        background-position: 200% center;
+    }
+}

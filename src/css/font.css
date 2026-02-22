@@ -1,0 +1,8 @@
+@font-face {
+    font-family: OppoSans4;
+    src: url(../font/OppoSans4.ttf);
+}
+
+* {
+    font-family: OppoSans4;
+}
